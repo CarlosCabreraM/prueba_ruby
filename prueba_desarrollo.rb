@@ -23,7 +23,9 @@ def average
         i.each do |ele|
             sum += ele.to_f
         end
+        puts '----------------------------------'
         puts "#{name} tiene un promedio de: #{sum /i.length}"
+        puts '----------------------------------'
     end
 end
 
@@ -43,6 +45,25 @@ def inasist
     end
 end
 
+def aprobed
+    arr = read_alum('alumnos.csv')
+    arr.each do |i|
+        name = i.shift 
+        sum = 0
+        i.each do |ele|
+            sum += ele.to_f
+        end
+        if sum / i.length >= 5.0
+        puts '------------------'
+        puts "#{name} aprobó"
+        puts '------------------'
+        else
+        puts '------------------'
+        puts "#{name} no aprobó"
+        puts '------------------'
+        end
+    end
+end
 
 
 num = 0
@@ -55,10 +76,9 @@ while num != 4
     when 2
         inasist
     when 3
-        
+          aprobed
     when 4
         puts 'Haz abandonado el programa'
-        
     else
         puts 'opción no válida'
     end
