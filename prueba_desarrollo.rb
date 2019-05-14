@@ -15,6 +15,20 @@ def menu
 end
 
 
+def average
+    arr = read_alum('alumnos.csv')
+    arr.each do |i|
+        name = i.shift 
+        sum = 0
+        i.each do |ele|
+            sum += ele.to_f
+        end
+        puts "#{name} tiene un promedio de: #{sum /i.length}"
+    end
+end
+
+
+
 
 
 num = 0
@@ -23,9 +37,9 @@ while num != 4
     num = gets.chomp.to_i
     case num
     when 1
-    
+        average
     when 2
-     
+        
     when 3
         
     when 4
