@@ -54,17 +54,45 @@ def aprobed
             sum += ele.to_f
         end
         if sum / i.length >= 5.0
-        puts '------------------'
-        puts "#{name} aprobó"
-        puts '------------------'
+            puts '------------------'
+            puts "#{name} aprobó"
+            puts '------------------'
         else
-        puts '------------------'
-        puts "#{name} no aprobó"
-        puts '------------------'
+            puts '------------------'
+            puts "#{name} no aprobó"
+            puts '------------------'
         end
     end
 end
 
+#TRANSFORMACION DE ARRAY/ARRAY A HASH
+arreglo = read_alum('alumnos.csv')
+aux_hash = {}
+arreglo.each do |array|
+    aux_arr = []
+    array.each_with_index do |elem, index|
+        if index == 0
+            aux_hash[elem.to_sym] = ''
+        else
+            aux_arr.push(elem.to_i)
+        end
+    end
+    aux_hash[array[0].to_sym] = aux_arr
+end
+
+def average_hash(arry)
+    arry.sum / arry.length
+end
+
+def approved_alumns(nota50)
+    nota50.each do |key, value|
+        if average_hash(value) >= 5.0
+            puts '---------------------------------------------'
+            puts "#{key} aprobó con nota #{average_hash(value)}"
+            puts '---------------------------------------------'
+        end
+    end
+end
 
 num = 0
 while num != 4
@@ -76,7 +104,7 @@ while num != 4
     when 2
         inasist
     when 3
-          aprobed
+        approved_alumns(aux_hash)
     when 4
         puts 'Haz abandonado el programa'
     else
