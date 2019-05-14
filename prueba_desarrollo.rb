@@ -27,7 +27,21 @@ def average
     end
 end
 
-
+def inasist 
+    arr = read_alum('alumnos.csv')
+    arr.each do |i|
+        name = i.shift
+        sum = 0
+        i.each do |ele|
+            if ele.to_i == 0 
+                sum += 1
+            end
+        end
+        puts '----------------------------------'
+        puts "#{name} tiene #{sum} inasistencia"
+        puts '----------------------------------'
+    end
+end
 
 
 
@@ -39,7 +53,7 @@ while num != 4
     when 1
         average
     when 2
-        
+        inasist
     when 3
         
     when 4
