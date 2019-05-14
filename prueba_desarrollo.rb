@@ -45,25 +45,6 @@ def inasist
     end
 end
 
-def aprobed
-    arr = read_alum('alumnos.csv')
-    arr.each do |i|
-        name = i.shift 
-        sum = 0
-        i.each do |ele|
-            sum += ele.to_f
-        end
-        if sum / i.length >= 5.0
-            puts '------------------'
-            puts "#{name} aprobó"
-            puts '------------------'
-        else
-            puts '------------------'
-            puts "#{name} no aprobó"
-            puts '------------------'
-        end
-    end
-end
 
 #TRANSFORMACION DE ARRAY/ARRAY A HASH
 arreglo = read_alum('alumnos.csv')
